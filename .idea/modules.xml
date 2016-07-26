@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://F://SudokuGenerator/SudokuGenerator.iml" filepath="F://SudokuGenerator/SudokuGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SudokuGenerator.iml" filepath="$PROJECT_DIR$/SudokuGenerator.iml" />
     </modules>
   </component>
 </project>
