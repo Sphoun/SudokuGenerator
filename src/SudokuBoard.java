@@ -117,6 +117,82 @@ public class SudokuBoard
         }
     }
 
+    public static void strike_out(int k1,int k2)
+    {
+        int row_from, row_to;
+        int col_from, col_to;
+        int rem1, rem2, flag;
+        int temp = board[k1][k2];
+        int count=9;
+
+        for(int i = 1; i <= 9; i++)
+        {
+            flag=1;
+            for(int j = 0; j < 9; j++)
+            {
+                if(j != k2)
+                {
+                    if(i != board[k1][j])
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        flag=0;
+                        break;
+                    }
+                }
+            }
+            if(flag == 1)
+            {
+                for(int c = 0; c < 9; c++)
+                {
+                    if(c != k1)
+                    {
+                        if(i!=board[c][k2])
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            flag=0;
+                            break;
+                        }
+                    }
+                }
+            }
+            if(flag==1)
+            {
+                rem1=k1%3; rem2=k2%3;
+                row_from=k1-rem1;
+                row_to=k1+(2-rem1);
+                col_from=k2-rem2;
+                col_to=k2+(2-rem2);
+                for(int c = row_from; c<=row_to; c++)
+                {
+                    for(int b = col_from; b <= col_to; b++)
+                    {
+                        if(c != k1 && b != k2)
+                        {
+                            if(i != board[c][b])continue;
+                            else
+                            {
+                                flag=0;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            if(flag==0)
+                count--;
+        }
+        if(count==1)
+        {
+            board[k1][k2]=0;
+        }
+    }
+
     public int[][] getBoard()
     {
         return board;
